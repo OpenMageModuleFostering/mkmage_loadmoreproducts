@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package>
+    <name>MKMage_LoadMoreProducts</name>
+    <version>0.1.0</version>
+    <stability>stable</stability>
+    <license>Open Software License (OSL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Auto-load additional products with this AJAX-based extension.</summary>
+    <description>Draw customers' attention to products in Catalog providing a convenient way for browsing through additional products from product page. The AJAX-based LoadMoreProducts extension continuously loads more products as the user scrolls down the page, or on a click of a button. Avoid pagination and make catalog browsing more user-friendly by automatically loading more products from a specific category.</description>
+    <notes>- Ajax loader of additional products on Product Page&#xD;
+- Load products from specific category&#xD;
+- Load products from last child category&#xD;
+- Easily replace Related Products, Up-sell Products, Most Viewed Products functionalities&#xD;
+- Load additional products with scroll down&#xD;
+- Load additional products on a click of a button&#xD;
+- Option to set Header Name&#xD;
+- Option to set Number of items per one step&#xD;
+- Option to Enable/Disable extension&#xD;
+- Option to set Load Action (either Scroll or Button)&#xD;
+- Option to Enable/Disable loading of Additional Products functionality on Specific Product Pages</notes>
+    <authors><author><name>MKMage</name><user>mkmage</user><email>support@mkmage.com</email></author></authors>
+    <date>2016-04-01</date>
+    <time>19:23:23</time>
+    <contents><target name="magelocal"><dir name="MKMage"><dir name="LoadMoreProducts"><dir name="Block"><file name="Info.php" hash="c42f1ad9d886b9eb935016d10de08ee2"/></dir><dir name="Helper"><file name="Data.php" hash="845c78ebd1720d4d0cfaf89e19428321"/></dir><dir name="Model"><file name="Observer.php" hash="5409d27962912094310199b3796de71c"/><dir name="Select"><file name="Select.php" hash="2e567b8cd6693905528c0dc343fcbd86"/><file name=".DS_Store" hash="194577a7e20bdcc7afbb718f502c134c"/></dir><file name=".DS_Store" hash="90f1f213e7e3216f862294bcc3a3c8c2"/></dir><dir name="controllers"><file name="IndexController.php" hash="e9ecba9f47e24443256feaa26ca88195"/></dir><dir name="etc"><file name="adminhtml.xml" hash="d41d8cd98f00b204e9800998ecf8427e"/><file name="config.xml" hash="354026a2211e7e1c12caedd38be5e93f"/><file name="system.xml" hash="11f99f10a7f4d8e2f895dded556904d5"/></dir><dir name="sql"><dir name="loadmore_setup"><file name="mysql4-install-0.1.0.php" hash="fe5acf8a1e85b608d90468249ac9c8cf"/></dir></dir></dir><dir name="Mkcore"><dir name="Block"><file name="Mkcore.php" hash="f423d477ed77d5abf5534dfb691da3d5"/></dir><dir name="Helper"><file name="Data.php" hash="fd776155a05a0c6072cb8f17d087d83b"/></dir><dir name="etc"><file name="config.xml" hash="17abb05de917d6982dac6c0225e77203"/><file name="system.xml" hash="164cd51bff905833ab0d3b39033cdc89"/></dir></dir><file name=".DS_Store" hash="1d72ade9ad3815c4cb4d4655009e6386"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><dir name="mkmage"><file name="loadmore.xml" hash="e14b4841d7b4fb813ff97309787e6bd4"/><file name=".DS_Store" hash="194577a7e20bdcc7afbb718f502c134c"/></dir></dir><dir name="template"><dir name="mkmage"><dir name="loadmore"><file name="definition.phtml" hash="a09de8994f3849c2dd29d0b76a9f6424"/><file name="loadmore.phtml" hash="daf3fbca303ffcd9d4b52fa86f597707"/></dir><file name=".DS_Store" hash="194577a7e20bdcc7afbb718f502c134c"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="MKMage_LoadMoreProducts.xml" hash="1cfc1b288d6f9ca6b3c041f7b16386f8"/><file name="MKMage_Mkcore.xml" hash="9d4a95fc4e27a2d67eb91ed6312141e4"/></dir></target><target name="mage"><dir name="."><dir name="js"><dir name="mkmage"><dir name="loadmore"><file name="loadmore.js" hash="b1928b3f4a67534ba2ddeb59079a3799"/></dir></dir></dir></dir></target><target name="mageskin"><dir name="adminhtml"><dir name="default"><dir name="default"><file name="mkcore.png" hash="de2e975210a34a30c717e549d212b739"/></dir></dir></dir><dir name="frontend"><dir name="base"><dir name="default"><dir name="images"><dir name="mkmage"><dir name="loadmore"><file name="loading_icon.gif" hash="b494fceca79586281a29c9462b09c85a"/></dir></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.1.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

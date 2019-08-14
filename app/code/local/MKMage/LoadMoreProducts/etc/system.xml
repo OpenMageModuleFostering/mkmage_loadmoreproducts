@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<tabs>
+        <mkmage translate="label" module="loadmoreproducts">
+            <label>MKMage Extensions</label>
+            <sort_order>100</sort_order>
+        </mkmage>
+    </tabs>
+    <sections>
+
+        <loadmoreproducts translate="label" module="loadmoreproducts">
+            <label>Load more products</label>
+            <tab>mkmage</tab>
+            <sort_order>200</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+            	<about translate="label">	
+					<label>Info</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>					
+                    <fields>
+                        <info translate="label">
+                            <frontend_model>loadmoreproducts/info</frontend_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </info>
+                    </fields>
+				</about>
+            	<loadmoreproducts_enable translate="label" module="loadmoreproducts">
+                    <label>Enable Extension</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1000</sort_order>
+                    <comment>
+					<![CDATA[
+						<style>#row_loadmoreproducts_loadmoreproducts_enable_email_sent{display:none;}</style>
+                    ]]>
+                    </comment>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                
+                        <email translate="label">
+                            <label>Register extension</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-email</validate>
+                            <comment>Enter email to register your extension</comment>
+                            <!--<backend_model>adminhtml/system_config_backend_email_address</backend_model>-->
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email>
+                        <email_sent translate="label">
+                            <frontend_type>hidden</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email_sent>
+                        <loadmoreproducts_enabled translate="label">
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </loadmoreproducts_enabled>
+                    </fields>
+            	</loadmoreproducts_enable>
+            	
+            	<loadmoreproducts_info translate="label" module="loadmoreproducts">
+                    <label>Display Information</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <loadmoreproducts_input translate="label">
+                            <label>Header Name: </label>
+                            <comment>Ajax products Title (ex. You might also like)</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </loadmoreproducts_input>
+                        <loadmoreproducts_speps translate="label">
+                            <label>Number of steps: </label>
+                            <comment>(default: 2; max-steps: 10;)</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </loadmoreproducts_speps>
+                        <loadmoreproducts_on_load translate="label">
+                            <label>Number of items per one step: </label>
+                            <comment>Display number of products per one step (default: 4)</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </loadmoreproducts_on_load>
+                        <loadmoreproducts_load_type translate="label">
+							<label>Loading Action: </label>
+							<comment>Load more products by click on "Button" or "Scroll" to end of page</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>loadmoreproducts/select_select</source_model>
+							<sort_order>35</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</loadmoreproducts_load_type> 
+                    </fields>
+            	</loadmoreproducts_info>
+            	
+            	<loadmoreproducts_info2 translate="label" module="loadmoreproducts">
+                    <label>Specific Category</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                    	<loadmoreproducts_enabled_2 translate="label">
+                            <label>Enable this solution</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </loadmoreproducts_enabled_2>
+                        <loadmoreproducts_input2 translate="label">
+                            <label>#ID of specific category: </label>
+                            <comment>Ajax load additional products form this specific category. (if empty, load additional product from Product Parent Category)</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </loadmoreproducts_input2>
+                    </fields>
+            	</loadmoreproducts_info2>
+            	
+            </groups>
+        </loadmoreproducts>
+    </sections>
+</config>

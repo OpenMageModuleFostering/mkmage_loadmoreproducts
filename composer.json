@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/MKMage_LoadMoreProducts",
+    "type": "magento-module",
+    "license": "Open-Software-License-(OSL)",
+    "homepage": "",
+    "description": "Auto-load additional products with this AJAX-based extension.",
+    "authors": [
+    {
+        "name": "MKMage",
+        "email": "support@mkmage.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

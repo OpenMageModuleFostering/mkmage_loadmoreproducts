@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+		<reference name="head">
+			<action method="addItem">
+				<type>js</type>
+				<name>mkmage/loadmore/loadmore.js</name>
+				<params><![CDATA[data-group="js002"]]></params>
+			</action>
+		</reference>
+	</default>
+	<catalog_product_view>
+		<reference name="product.info.additional" >
+			<block type="core/template" name="loadmore" template="mkmage/loadmore/definition.phtml"  />
+		</reference>
+	</catalog_product_view>
+</layout>

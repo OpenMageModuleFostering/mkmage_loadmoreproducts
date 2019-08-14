@@ -1,0 +1,82 @@
+<style> .button_holder {width:100%; float:left; clear:both;} .mkmage_loadmore {text-align:center; } .load_buttom { width: 200px;text-align: center;float: none;display: inline-block;background: #3399CC;color: white;cursor: pointer; margin-top:30px;} #loadmore { width: 100%;}#loadmore li {width:25%;float:left;}#loadingicon { clear: both;float: none;margin: auto;position: relative;top: 50%;left: 50%;margin-left: -20px;}.loadmore_title {color: black;border-bottom: 1px solid gray;text-align: center;font-size: 20px;}</style>
+<?php 
+	$check_enabled = Mage::getStoreConfig('loadmoreproducts/loadmoreproducts_enable/loadmoreproducts_enabled',Mage::app()->getStore());
+	$tittle_name = Mage::getStoreConfig('loadmoreproducts/loadmoreproducts_info/loadmoreproducts_input',Mage::app()->getStore()); 
+	$check_spesific_id = Mage::getStoreConfig('loadmoreproducts/loadmoreproducts_info2/loadmoreproducts_enabled_2',Mage::app()->getStore()); 
+	$get_spesific_id = Mage::getStoreConfig('loadmoreproducts/loadmoreproducts_info2/loadmoreproducts_input2',Mage::app()->getStore()); 
+	$get_on_pageload = Mage::getStoreConfig('loadmoreproducts/loadmoreproducts_info/loadmoreproducts_on_load',Mage::app()->getStore());
+	$num_spetps = Mage::getStoreConfig('loadmoreproducts/loadmoreproducts_info/loadmoreproducts_speps',Mage::app()->getStore()); 
+	$type_of_load = Mage::getStoreConfig('loadmoreproducts/loadmoreproducts_info/loadmoreproducts_load_type',Mage::app()->getStore());
+	
+	$_product = Mage::registry('current_product');
+	$check_availability_product = $_product->getData('mkmage_loadmore_check');
+	
+		if ($check_enabled == 1 && $check_availability_product != 1 ) { 
+		
+			if (!empty($tittle_name)): ?>
+				<p  class="loadmore_title"><?php echo $tittle_name; ?></p>
+			<?php else: ?>
+				<p  class="loadmore_title">You might also like</p>
+			<?php endif; ?>
+			<?php 
+			$categories = $_product->getCategoryIds();
+			$parent_category = end($categories);
+	
+			if ($check_spesific_id == 1 && !empty($get_spesific_id) ) {
+				$get_subcat = $get_spesific_id;
+			} else {
+				$get_subcat = $parent_category;
+			}
+	
+			if (!empty($get_on_pageload) && $get_on_pageload > 0 && $get_on_pageload <= 10 ) {
+				$load_items = $get_on_pageload;
+			} else {
+				$load_items = 4;
+			}
+			if ($num_spetps > 2 && $num_spetps <= 10 ) {
+				$num_spetps = $num_spetps;
+			} else {
+				$num_spetps = 2;
+			}
+			//var_dump($get_subcat); die();
+			$cat_name = Mage::getModel('catalog/category')->load($get_subcat)->getName();
+			?>
+	
+			<?php 
+			$products = Mage::getModel('catalog/category')->load($get_subcat)
+			 ->getProductCollection()
+			 ->addAttributeToSelect('*') // add all attributes - optional
+			 ->addAttributeToFilter('status', 1) // enabled
+			 ->addAttributeToFilter('visibility', 4) //visibility in catalog,search
+			 ->setPageSize($load_items)  //sets only 4 per page
+			 ->setOrder('ordered_qty', 'desc');
+			?>
+			<div class="mkmage_loadmore">
+				<input type="hidden" value="2" id="page_num" >
+				<input type="hidden" id="product_id_ajax" value="<?php echo $_product->getId() ?>" />
+				<input type="hidden" id="loadmore_ajax" value="<?php echo Mage::getBaseUrl() . 'loadmore' ?>" />
+				<input type="hidden" id="subcat_ajax" value="<?php echo $get_subcat; ?>" />
+				<input type="hidden" id="item_per_load" value="<?php echo $load_items; ?>" />
+				<input type="hidden" id="num_spetps" value="<?php echo $num_spetps + 1; ?>" />
+				<input type="hidden" id="type_of_load" value="<?php echo $type_of_load; ?>" />
+				<ul id="loadmore">
+				<?php  foreach ($products as $product): ?> 
+
+						<li>
+							<?php $prod = Mage::getModel('catalog/product')->load($product->getId()); ?>
+							<a href="<?php echo $prod->getProductUrl(); ?>" >
+								<img src="<?php echo Mage::helper('catalog/image')->init($prod, 'image')->resize(290,290); ?> "/>
+								<span class="search_name">
+									<?php echo $prod->getName(); ?>
+								</span>
+							</a>
+						</li>
+
+				<?php endforeach; ?>
+				</ul>
+				<img id="loadingicon" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN); ?>frontend/base/default/images/mkmage/loadmore/loading_icon.gif" style="width:40px; display:none;" />
+				<div class="button_holder">
+					<p id="load_on_click" class="load_buttom">Load More</p>
+				</div>
+			</div>
+	<?php } ?>

@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <MKMage_LoadMoreProducts>
+            <active>true</active>
+            <codePool>local</codePool>
+        </MKMage_LoadMoreProducts>
+    </modules>
+</config>

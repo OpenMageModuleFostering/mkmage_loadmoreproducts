@@ -1,0 +1,20 @@
+<?php //print_r($this->getData()); ?>
+<?php $products = $this->getData('loadCollection') ?>
+<?php $endCollection = $this->getData('endCollection') ?>
+
+<?php  foreach ($products as $product): ?> 
+	
+		<li>
+			<?php $prod = Mage::getModel('catalog/product')->load($product->getId()); ?>
+			<a href="<?php echo $prod->getProductUrl(); ?>" >
+				<img src="<?php echo Mage::helper('catalog/image')->init($prod, 'image')->resize(290,290); ?> "/>
+				<span class="search_name" >
+				<?php echo $prod->getName(); ?></span>
+			</a>
+		</li>
+
+<?php endforeach; ?>
+
+<?php if($endCollection): ?>
+	<input type="hidden" name="endCollection" value="true" id="endCollection">
+<?php endif; ?>
