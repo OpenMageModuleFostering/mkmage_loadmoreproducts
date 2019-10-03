@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/MKMage_LoadMoreProducts",
+    "name": "openmage-module-fostering\/mkmage_loadmoreproducts",
     "type": "magento-module",
-    "license": "Open-Software-License-(OSL)",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "Auto-load additional products with this AJAX-based extension.",
     "authors": [
